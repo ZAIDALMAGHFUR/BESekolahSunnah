@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\LoginController;
 use App\Http\Controllers\API\LogoutController;
 use App\Http\Controllers\API\SekolahController;
+use App\Http\Controllers\API\BookMarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,17 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::middleware(['auth:sanctum', 'OnlyAdmin'])->group(function () {
+    //sekolah api route
     Route::get('sekolah', [SekolahController::class, 'index'])->name('sekolah');
     Route::post('sekolah/post', [SekolahController::class, 'store'])->name('sekolah.store');
     Route::get('sekolah-edit/{id}', [SekolahController::class, 'edit'])->name('sekolah.edit');
     Route::put('sekolah-update/{id}', [SekolahController::class, 'update'])->name('sekolah.update');
     Route::delete('sekolah-delete/{id}', [SekolahController::class, 'destroy'])->name('sekolah.destroy');
+
+    //BookMark api route
+    Route::get('bookmark', [BookMarkController::class, 'index'])->name('bookmark');
+    Route::post('bookmark/post', [BookMarkController::class, 'store'])->name('bookmark.store');
+    Route::get('bookmark-edit/{id}', [BookMarkController::class, 'edit'])->name('bookmark.edit');
+    Route::put('bookmark-update/{id}', [BookMarkController::class, 'update'])->name('bookmark.update');
+    Route::delete('bookmark-delete/{id}', [BookMarkController::class, 'destroy'])->name('bookmark.destroy');
 });
