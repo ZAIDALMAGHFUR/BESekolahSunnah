@@ -7,6 +7,7 @@ use App\Http\Controllers\API\LogoutController;
 use App\Http\Controllers\API\SekolahController;
 use App\Http\Controllers\API\BookMarkController;
 use App\Http\Controllers\API\User\UserSekolahController;
+use App\Http\Controllers\API\User\UserBookMarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +46,12 @@ Route::middleware(['auth:sanctum', 'OnlyUser'])->group(function () {
     //sekolah api route
     Route::get('sekolah-data', [UserSekolahController::class, 'index'])->name('sekolah.data');
     Route::get('sekolah-show/{id}', [UserSekolahController::class, 'show'])->name('sekolah.data.show');
-    Route::post('add-to-bookmark/{id}', [UserSekolahController::class, 'bookmark'])->name('sekolah.bookmark');
+    Route::post('add-to-bookmark', [UserSekolahController::class, 'bookmark'])->name('sekolah.bookmark');
+    Route::get('search', [UserSekolahController::class, 'search'])->name('sekolah.search');
+});
+
+
+Route::middleware(['auth:sanctum', 'OnlyUser'])->group(function () {
+    //data user bookmark
+    Route::get('user-bookmark', [UserBookMarkController::class, 'index'])->name('user.bookmark');
 });

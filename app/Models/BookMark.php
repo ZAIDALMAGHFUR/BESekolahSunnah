@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class BookMark extends Model
 {
@@ -12,4 +13,13 @@ class BookMark extends Model
     protected $guarded = [
         'id'
     ];
+
+    // pada model User
+
+// pada model Bookmark
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 }
