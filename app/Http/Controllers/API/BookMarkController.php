@@ -19,6 +19,4 @@ class BookMarkController extends Controller
             'sekolah' => $sekolah
         ], 200);
     }
-
-    
 }

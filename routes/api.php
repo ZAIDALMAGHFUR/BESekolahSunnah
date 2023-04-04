@@ -6,6 +6,7 @@ use App\Http\Controllers\API\LoginController;
 use App\Http\Controllers\API\LogoutController;
 use App\Http\Controllers\API\SekolahController;
 use App\Http\Controllers\API\BookMarkController;
+use App\Http\Controllers\API\User\UserSekolahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,11 @@ Route::middleware(['auth:sanctum', 'OnlyAdmin'])->group(function () {
     Route::get('bookmark-edit/{id}', [BookMarkController::class, 'edit'])->name('bookmark.edit');
     Route::put('bookmark-update/{id}', [BookMarkController::class, 'update'])->name('bookmark.update');
     Route::delete('bookmark-delete/{id}', [BookMarkController::class, 'destroy'])->name('bookmark.destroy');
+});
+
+Route::middleware(['auth:sanctum', 'OnlyUser'])->group(function () {
+    //sekolah api route
+    Route::get('sekolah-data', [UserSekolahController::class, 'index'])->name('sekolah.data');
+    Route::get('sekolah-show/{id}', [UserSekolahController::class, 'show'])->name('sekolah.data.show');
+    Route::post('add-to-bookmark/{id}', [UserSekolahController::class, 'bookmark'])->name('sekolah.bookmark');
 });
