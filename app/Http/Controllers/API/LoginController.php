@@ -22,7 +22,8 @@ class LoginController extends Controller
             Log::info($request);
             if (auth()->attempt($credentials)) {
                 $token = $request->user()->createToken('authToken')->plainTextToken;
-                $username = $request->user()->username;
+                $first_name = $request->user()->first_name;
+                $last_name = $request->user()->last_name;
                 return response()->json([
                     'status' => 'success',
                     'meta' => [
@@ -30,7 +31,7 @@ class LoginController extends Controller
                     ],
                     'data' => [
                         'id'=> $request->user()->id,
-                        'username' => $username,
+                        'username' => $first_name . ' ' . $last_name,
                         'email' => $request->email,
                     ],
                 ], 200);

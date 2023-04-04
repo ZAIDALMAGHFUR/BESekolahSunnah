@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\LoginController;
 use App\Http\Controllers\API\LogoutController;
@@ -20,6 +21,8 @@ use App\Http\Controllers\API\User\UserBookMarkController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+// Auth::routes(['verify' => true]);
+
 
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
@@ -28,7 +31,8 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 
-Route::post('register', [RegisterController::class, 'register'])->name('register');
+Route::post('register', [RegisterController::class, 'register'])->name('register')->middleware(['throttle:6,1'])->withoutMiddleware(['auth:api', 'throttle']);
+
 
 Route::middleware(['auth:sanctum', 'OnlyAdmin'])->group(function () {
     //sekolah api route

@@ -10,6 +10,11 @@ use App\Http\Controllers\Controller;
 
 class UserSekolahController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
     public function index()
     {
         $sekolah = nama_sekolah::all();
