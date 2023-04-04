@@ -6,6 +6,7 @@ use App\Http\Controllers\API\LoginController;
 use App\Http\Controllers\API\LogoutController;
 use App\Http\Controllers\API\SekolahController;
 use App\Http\Controllers\API\BookMarkController;
+use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\User\UserSekolahController;
 use App\Http\Controllers\API\User\UserBookMarkController;
 
@@ -25,6 +26,9 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 });
+
+
+Route::post('register', [RegisterController::class, 'register'])->name('register');
 
 Route::middleware(['auth:sanctum', 'OnlyAdmin'])->group(function () {
     //sekolah api route
