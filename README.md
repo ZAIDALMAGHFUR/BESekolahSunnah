@@ -7,19 +7,16 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## SIAKAD - Lara
+## API SEKOLAH SUNNAH 
 
-Website SISTEM Informasi Akademik berbasis **LARAVEL 9** sebelumnya saya sudah buat juga yang versi nodejs + react, cuma belum lengkap, silahkan kalian lihat juga jika ingin belajar, fitur sama saja nantinya yang hanya berbeda dalam penggunaan teknologi bahasa yang saya gunakan, yang dibuat sedemikian rupa, untuk saya belajar, dan ini semua open source, bisa kalian kembangkan kembali, fitur sementara yang sudah saya kerjakan, yaitu:
+API Sekolah Sunnah berbasis **LARAVEL 9**silahkan kalian lihat juga jika ingin belajar, fitur sama saja nantinya yang hanya berbeda dalam penggunaan teknologi bahasa yang saya gunakan, yang dibuat sedemikian rupa, untuk saya belajar, dan ini semua open source, bisa kalian kembangkan kembali, fitur sementara yang sudah saya kerjakan, yaitu:
 
-- Job Search ( Scraping website Glints ).
-- Zoom Meeting.
 - Authentication ( Register, Login, Verify Email, Forgot Password )
 
-SIAKAD masih dalam **tahap pengembangan**, karena ini basicnya untuk saya mempelajari hal baru, update terbaru, baik itu php framework dan js framework.
 
 ## Instalasi
 
-Untuk dapat kalian gunakan SIAKAD - LARA ini silahkan kalian ketikan perintah dibawah ini.
+Untuk dapat kalian gunakan API Sekolah Sunnah ini silahkan kalian ketikan perintah dibawah ini.
 ```sh
 $ composer install
 ```
@@ -29,10 +26,10 @@ $ composer update
 
 ## Setting Enviroment
 
-Berikut kalian setting terlebih dahulu, seperti yang saya sudah jelaskan diatas, bahwa fitur di SIAKAD ini ada Zoom Meeting dan Authentication menggunakan verify email dimana dibutuhkan sebuah **SMTP** untuk dapat mengirim sebuah email, beserta membuat zoom meeting maka ikuti langkah nya.
+Berikut kalian setting terlebih dahulu, seperti yang saya sudah jelaskan diatas, bahwa fitur di SIAKAD ini ada Authentication menggunakan verify email dimana dibutuhkan sebuah **SMTP** untuk dapat mengirim sebuah email, beserta membuat zoom meeting maka ikuti langkah nya. 
 
 - Untuk SMTP belajar kalian silahkan gunakan [mailtrap](https://mailtrap.io/) agar mempunyai API KEY 
-- Untuk mendapatkan akses API KEY Zoom, silahkan kalian registrasi / login zoom, lalu kebagian menu **Advance** - **App Marketplace** - **Build JWT** kemudian akan muncul API KEY beserta SECRET KEY dan untuk Library saya menggunakan [MacsiDigital](https://github.com/MacsiDigital/laravel-zoom) silahkan baca karena dokumentasinya yang cukup lengkap.
+
 
 ```env
 MAIL_MAILER=smtp
@@ -43,12 +40,6 @@ MAIL_PASSWORD=YOUR_PASSWORD
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="no-reply@youremail.sch.id"
 MAIL_FROM_NAME="${APP_NAME}"
-```
-
-Kemudian kalian letakkan dan buat env api key untuk zoom, letakkan paling bawah agar tidak bingung
-```env
-ZOOM_CLIENT_KEY="YOUR_API_KEY"
-ZOOM_CLIENT_SECRET="YOUR_SECRET_KEY"
 ```
 
 ### Migration
